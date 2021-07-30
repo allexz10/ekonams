@@ -60,7 +60,7 @@ if (isMobile.any()) {
     function initMap() {
       const map = new google.maps.Map(document.querySelector(".map__block"), {
         zoom: 4,
-        disableDefaultUI: true,        
+        disableDefaultUI: true,                
         mapTypeId: google.maps.MapTypeId.ROADMAP,
         center: { lat: 62.22699604, lng: 10.85449219 },
         styles: [

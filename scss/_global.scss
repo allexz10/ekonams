@@ -1,0 +1,32 @@
+html,
+body {
+  height: 100%;
+  font-size: 14px;     
+}
+
+.wrapper {
+  max-width: 1170px;
+  margin: 0 auto;
+   
+}
+
+.main {
+  flex: 1 0 auto;
+}
+.footer {
+  flex: 0 0 auto;
+}
+
+.container {
+  max-width: 1440px;
+  margin: 0 auto; 
+}
+
+a[href^="http://maps.google.com/maps"],
+a[href^="https://maps.google.com/maps"],
+a[href^="https://www.google.com/maps"] {
+    display: none !important;
+}
+.gmnoprint:not(.gm-bundled-control) {
+    display: none;
+}

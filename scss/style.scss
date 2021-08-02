@@ -3,9 +3,24 @@
 @import "reset";
 @import "libs";
 @import "global";
+@import "media";
 
-.header__inner {
-  margin-bottom: 100px;
+.header {
+  &__inner {
+    margin-bottom: 100px;
+    padding-bottom: 180px;
+    display: flex;
+    position: relative;
+  }
+  &__inner--bg {
+    max-width: 1439px;
+    width: 100%;
+    height: 74px;
+    background-color: #fff;
+    position: absolute;
+    top: 0px;
+    z-index: 2;
+  }
 }
 
 .logo {
@@ -13,27 +28,39 @@
   background-color: #242032;
   width: 170px;
   height: 224px;
-  position: relative;
+  position: absolute;
   z-index: 999;
   &__link {
     display: inline-block;
   }
   &__img {
     position: absolute;
-    top: 100px;
+    top: 80px;
     left: 24px;
+    width: 122px;
+    height: auto;
+    object-fit: cover;
   }
 }
+.menu__btn {
+  display: none;
+  background-color: transparent;
+}
 .menu {
-  margin-top: -14px;
-  margin-left: 300px;
+  max-width: 750px;
+  width: 100%;
+  position: relative;
+  top: 2px;
+  left: 380px;
+  z-index: 2;
   &__list {
     display: flex;
     margin-top: 30px;
-  }  
+  }
   &__list--item {
     margin-right: 65px;
     position: relative;
+    width: 174px;
   }
   &__list--item:hover .submenu__list {
     display: none;
@@ -72,6 +99,7 @@
       font-size: 14px;
       line-height: 18px;
       color: #fff;
+      padding: 10px 120px 11px 0;
       margin-bottom: 10px;
       transition: all 0.3s ease-in;
     }
@@ -93,29 +121,35 @@
   border-top: 5px solid #292929;
   border-right: 5px solid transparent;
   border-left: 5px solid transparent;
-  
 }
-.arrow.active{
+.arrow.active {
   transform: rotate(-180deg);
 }
 
-.list__item__lang{
-  margin-left: 200px;
-  
+body.mouse .list__item__lang {
+  margin-left: 220px;
 }
-.menu a.parent{
-  margin: 0px 20px 0px 0px; 
+body.touch .list__item__lang {
+  margin-left: 140px;
+}
+
+.menu a.parent {
+  margin: 0px 20px 0px 0px;
 }
 body.mouse .menu__list--item:hover .submenu__list {
-    display: block;
-  }
+  display: block;
+}
 
-body.touch .submenu__list.open{
+body.touch .submenu__list.open {
   display: block;
 }
-body.touch .arrow{
+body.touch .arrow {
   display: block;
 }
+body.mouse .arrow {
+  display: none;
+}
+
 .list__item--new {
   background-color: #f1f1f1 !important;
   text-align: left !important;
@@ -134,15 +168,18 @@ body.touch .arrow{
   color: #252033 !important;
 }
 .item__lang {
-  max-width: 54px !important;
+  max-width: 52px !important;
 }
-.menu__lang { 
- left: -17px !important ;
+.link__lang {
+  padding: 25px 25px 25px 0 !important;
+}
+.menu__lang {
+  left: -17px !important ;
 }
 
-.background__video {
+.video__bg {
   position: relative;
-  top: -150px;
+  top: -250px;
   left: 85px;
   z-index: 1;
   width: 1355px;
@@ -152,9 +189,7 @@ body.touch .arrow{
 .video {
   position: static;
   z-index: 1;
-  left: 0;
-  top: 0;
-  min-width: 1355px;
+  width: 1355px;
   height: 564px;
   opacity: 0.4;
   object-fit: cover;
@@ -162,7 +197,7 @@ body.touch .arrow{
 
 .content {
   position: absolute;
-  z-index: 999;
+  z-index: 3;
   left: 120px;
   top: 170px;
   padding: 10px 10px;
@@ -185,29 +220,38 @@ body.touch .arrow{
   }
 }
 .wrapper {
-  margin-top: -259px;
-  padding-bottom: 83px;
+  margin-top: -210px;
 }
 .background {
-  min-width: 1440px;
-  width: 100%;
+  max-width: 1440px;
   height: 442px;
   background-color: #242032;
   margin-top: -320px;
-  &__lineal {
+  &__inner {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+  }
+  &__inner--lineal {
+    position: relative;
+    z-index: 222;
     margin: 0 auto;
-    object-fit: contain;
-    margin-top: -32px;
-    min-width: 1170px;
+    max-width: 1270px;
+    height: auto;
   }
 }
 
 .block {
+  position: relative;
+  z-index: 222;
   max-width: 1170px;
   height: 176px;
   display: flex;
-  align-items: center;
+  align-items: stretch;
   text-align: center;
+  top: -66px;
   margin-left: -6px;
   &__item {
     padding-right: 24px;
@@ -299,6 +343,7 @@ body.touch .arrow{
 .product {
   &__content {
     display: flex;
+    justify-content: space-between;
   }
   &__content--block {
     position: relative;
@@ -315,7 +360,8 @@ body.touch .arrow{
   }
   &__content--text {
     height: 189px;
-    min-width: 487px;
+    max-width: 487px;
+    width: 100%;
     color: #6f6f70;
     font-family: "Questa Sans";
     font-size: 16px;
@@ -329,13 +375,12 @@ body.touch .arrow{
     width: 240px;
     height: 706px;
     background-color: #242032;
-    margin: 128px 0 174px 308px;
+    margin: 128px 0px 174px 308px;
   }
   &__content--image {
     max-width: 570px;
     height: 463px;
     object-fit: contain;
-    background-repeat: no-repeat;
     position: absolute;
     top: 255px;
     right: 140px;
@@ -354,7 +399,6 @@ body.touch .arrow{
       span {
         width: 12px;
         height: 2px;
-        position: relative;
         background-color: #242032;
         position: absolute;
         bottom: 39px;
@@ -372,29 +416,42 @@ body.touch .arrow{
     }
   }
 }
-
+.bg {
+  &__inner {
+    background-color: #e6e6e6;
+    max-width: 100%;
+    height: 741px;
+    position: relative;
+    z-index: 999;
+    top: -46px;
+  }
+  &__item {
+    position: relative;
+    z-index: 5;
+    top: -128px;
+    left: 0;
+    width: 240px;
+    height: 869px;
+    background-color: #242032;
+  }
+}
 .events {
   &__content {
     position: relative;
     z-index: 999;
-    margin-top: -820px;
-    padding-bottom: 100px;
+    top: -460px;
+    padding-bottom: 130px;
   }
   &__content--block {
     display: flex;
     justify-content: center;
+    align-items: center;
   }
   &__content--image {
     min-width: 570px;
+    width: 100%;
     height: 375px;
     object-fit: cover;
-  }
-  &__content--bg {
-    margin-right: auto;
-    width: 240px;
-    height: 869px;
-    background-color: #242032;
-    padding-right: 10px;
   }
   &__content--link {
     display: block;
@@ -410,6 +467,7 @@ body.touch .arrow{
     color: #fff;
     text-shadow: 0.1px 0 9px rgba(0, 0, 0, 0.5);
     position: absolute;
+    z-index: 999;
     bottom: 24px;
     left: 165px;
     transition: all 1s ease;
@@ -421,24 +479,6 @@ body.touch .arrow{
     line-height: 60px;
     text-align: center;
     margin-bottom: 39px;
-  }
-  &__bg {
-    position: relative;
-    z-index: 1;
-    top: -174px;
-    left: 0;
-    width: 240px;
-    min-height: 869px;
-    background-color: #242032;
-  }
-  &__bg--elem {
-    width: 1204px;
-    min-height: 741px;
-    position: absolute;
-    z-index: 1;
-    left: 240px;
-    top: 128px;
-    background-color: #e6e6e6;
   }
   &__content--left {
     padding-right: 15px;
@@ -485,13 +525,15 @@ body.touch .arrow{
 
 .map {
   &__inner {
-    padding-bottom: 114px;
+    margin-bottom: 114px;
+    margin-top: -430px;
   }
   &__inner--block {
-    height: 490px;
+    height: 500px;
     max-width: 1355px;
-    margin-left: 0;
     width: 100%;
+    margin-left: 0;
+
     opacity: 0.9;
   }
   &__inner--title {
@@ -504,6 +546,7 @@ body.touch .arrow{
     font-size: 44px;
     line-height: 60px;
     letter-spacing: 0.96px;
+    padding: 0 15px;
   }
 }
 
@@ -513,11 +556,12 @@ body.touch .arrow{
   padding-right: calc(100% - 50px);
 }
 
-.footer {
-  padding-bottom: 77px;
+.footer { 
   &__inner {
-    width: 1270px;
+    max-width: 1270px;
+    width: 100%;
     margin-left: 85px;
+    padding-bottom: 77px;
   }
   &__wrapper {
     display: flex;
@@ -546,7 +590,6 @@ body.touch .arrow{
   }
   &__lineal--img {
     width: 1270px;
-    width: 100%;
   }
   &__text {
     color: #6e6e6e;
@@ -556,11 +599,11 @@ body.touch .arrow{
     line-height: 18px;
   }
   &__agency--link {
-    padding-right: 144px;
+    padding-right: 142px;
   }
   &__social {
     display: flex;
-    align-items: center;
+    align-items: baseline;
   }
   &__social--link {
     padding-left: 32px;

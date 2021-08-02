@@ -109,7 +109,7 @@ function initMap() {
     mapTypeId: google.maps.MapTypeId.ROADMAP,
     scrollwheel: false,
     zoomControl: true,
-    center: { lat: 61.731526, lng: 19.626644 },
+    center: { lat: 62.674143, lng: 19.673934 },
     styles: [
       {
         featureType: "all",
@@ -499,6 +499,10 @@ function initMap() {
 
   $(window).resize(function () {
     google.maps.event.trigger(map, "resize");
+  });
+
+  $(window).resize(function () {
+    google.maps.event.trigger(map, "zoom");
   });
 
   //------------------------------------------------------

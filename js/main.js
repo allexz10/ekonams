@@ -106,9 +106,7 @@ function initMap() {
   const map = new google.maps.Map(document.querySelector(".map__block"), {
     zoom: 4,
     disableDefaultUI: true,
-    mapTypeId: google.maps.MapTypeId.ROADMAP,
-    scrollwheel: false,
-    zoomControl: true,
+    mapTypeId: google.maps.MapTypeId.ROADMAP,    
     center: { lat: 59.422728, lng: 19.584459 },
     styles: [
       {

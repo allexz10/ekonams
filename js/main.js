@@ -109,7 +109,7 @@ function initMap() {
     mapTypeId: google.maps.MapTypeId.ROADMAP,
     scrollwheel: false,
     zoomControl: true,
-    center: { lat: 60.586967, lng: 18.751513 },
+    center: { lat: 59.422728, lng: 19.584459 },
     styles: [
       {
         featureType: "all",
@@ -520,6 +520,7 @@ function initMap() {
     minimumClusterSize: 2,
   });
 }
+
 
 //---------------------- map locations ----------------
 const locations = [
